@@ -6,6 +6,7 @@ import ToasterProvider from './providers/ToasterProvider'
 import RegisterModal from './components/modals/RegisterModal'
 import LoginModal from './components/modals/LoginModal'
 import getCurrentUser from './actions/getCurrentUser'
+import ClientOnly from './components/ClientOnly';
 
 
 export const metadata = {
@@ -24,11 +25,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
+        <ClientOnly>
+
         {/* <Modal actionLabel='Submit' isOpen={true}/> */}
         <ToasterProvider/>
         <RegisterModal/>
         <LoginModal/>
         <Navbar currentUser={currentUser}/>
+        </ClientOnly>
         {children}
       </body>
     </html>

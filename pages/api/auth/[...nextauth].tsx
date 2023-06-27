@@ -6,15 +6,18 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "@/app/libs/prismadb";
 import bcrypt from "bcrypt";
 import NextAuth from "next-auth";
+import { NextAuthOptions } from "next-auth";
 
-export const authOptions: AuthOptions = {
+
+
+export const authOptions: NextAuthOptions = {
+  
   adapter: PrismaAdapter(prisma),
+  
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
-      allowDangerousEmailAccountLinking: true,
-      checks: ['none']
 
 
     }),
@@ -59,8 +62,12 @@ export const authOptions: AuthOptions = {
     }),
   ],
 
+  
+
   pages: {
-    signIn: "/",
+    signIn: "/api/auth/signIn",
+    error: '/api/auth/error',
+
   },
   debug: process.env.NODE_ENV === "development",
   session: {

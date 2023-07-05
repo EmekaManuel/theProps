@@ -1,3 +1,4 @@
+
 // import Modal from './components/modals/Modal'
 import Navbar from './components/navbar/Navbar'
 import './globals.css'
@@ -7,6 +8,7 @@ import RegisterModal from './components/modals/RegisterModal'
 import LoginModal from './components/modals/LoginModal'
 import getCurrentUser from './actions/getCurrentUser'
 import ClientOnly from './components/ClientOnly';
+import RentModal from './components/modals/RentModal'
 
 
 export const metadata = {
@@ -25,14 +27,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <ClientOnly>
 
         {/* <Modal actionLabel='Submit' isOpen={true}/> */}
         <ToasterProvider/>
+        <RentModal/>
         <RegisterModal/>
         <LoginModal/>
         <Navbar currentUser={currentUser}/>
-        </ClientOnly>
         {children}
       </body>
     </html>

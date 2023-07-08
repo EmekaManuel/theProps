@@ -54,7 +54,8 @@ const UserMenu: React.FC<userMenuProps> = ({ currentUser }) => {
       {isOpen ? (
         <div className="absolute z-40  rounded-xl shadow-md w-[30vw] md-[w-2/4] overflow-hidden right-0 top-12 text-sm ">
           <div className="flex bg-white flex-col cursor-pointer ">
-            {currentUser ? (
+            {/* change this later auth issues remove the exclamation! */}
+            {!currentUser ? (
               <>
                 <MenuItem label="My Trips" onClick={() => {}} />
                 <MenuItem label="My Favorites" onClick={() => {}} />

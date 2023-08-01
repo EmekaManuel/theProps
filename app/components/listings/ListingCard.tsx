@@ -28,7 +28,6 @@ const ListingCard: React.FC<ListingCardProps> = ({
   actionId = "",
   currentUser,
 }) => {
-
   const router = useRouter();
   const { getByValue } = useCountries();
   const location = getByValue(data.locationValue);
@@ -57,9 +56,9 @@ const ListingCard: React.FC<ListingCardProps> = ({
     if (!reservation) {
       return null;
     }
-  
-  const start = new Date(reservation.startDate);
-  const end = new Date(reservation.endDate);
+
+    const start = new Date(reservation.startDate);
+    const end = new Date(reservation.endDate);
 
     return `${format(start, "PP")} - ${format(end, "PP")}`;
   }, [reservation]);

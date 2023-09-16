@@ -20,6 +20,10 @@ export default async function Home() {
     );
   }
 
+  {
+    /**checking build */
+  }
+
   return (
     <ClientOnly>
       <Container>
@@ -36,8 +40,12 @@ export default async function Home() {
         >
           {listings.map((listing) => {
             return (
-              <ListingCard currentUser={currentUser} key={listing.id} data={listing}/>
-            )
+              <ListingCard
+                currentUser={currentUser}
+                key={listing.id}
+                data={listing}
+              />
+            );
           })}
         </div>
       </Container>
